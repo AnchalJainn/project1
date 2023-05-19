@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Code Checkout') {
             steps {
-               git branch: 'main', url: 'https://github.com/AnchalJainn/project1.git'
+               git branch: 'master', url: 'https://github.com/AnchalJainn/project1.git'
             }
         }
         stage('Docker Build'){
@@ -14,7 +14,7 @@ pipeline {
         }
         stage('DockerHub Push'){
             steps{ 
-                withCredentials([usernamePassword(credentialsId: 'dockerpwd', passwordVariable: 'pwd')]) {
+                withCredentials([usernamePassword(credentialsId: 'dockerpwd1706', passwordVariable: 'pwd')]) {
                       sh "docker login -u anchaljaindevops -p ${pwd}"
                 }
                 
