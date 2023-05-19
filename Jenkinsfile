@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Run Docker container'){
             steps{
-                sh "sudo docker container run -p 9086:8080 anchaljaindevops/applebite:latest"
+                sh "sudo docker container run -p 8080:80 anchaljaindevops/applebite:latest"
             }
         }
     }
