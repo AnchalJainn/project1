@@ -7,9 +7,11 @@ pipeline {
                git branch: 'master', url: 'https://github.com/AnchalJainn/project1.git'
             }
         }
-        stage("Configure Server"){
+        stage("Configure Agent"){
             steps{
-                ansiblePlaybook become: true, inventory: 'servers.txt', playbook: 'configuration-playbook.yml'
+                sh '''sudo wget https://raw.githubusercontent.com/lerndevops/labs/master/scripts/installDocker.sh -P /tmp
+                    sudo chmod 755 /tmp/installDocker.sh
+                    sudo bash /tmp/installDocker.sh'''
             }
         }
         stage('Docker Build'){
