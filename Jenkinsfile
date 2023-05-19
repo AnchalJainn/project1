@@ -15,8 +15,8 @@ pipeline {
         }        
         stage('DockerHub Push'){
             steps{ 
-                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'pwd')]) {
-                      sh "docker login -u anchaljaindevops -p ${pwd}"
+                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'pwdVar', usernameVariable: 'userVar')]) {
+                    sh "docker login -u ${userVar} -p ${pwdVar}"
                 }
                 
                 sh "docker push anchaljaindevops/applebite:latest "
