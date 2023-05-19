@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Docker Build'){
             steps{
-                sh "docker build . -t anchaljaindevops/applebite:latest"
+                sh "sudo docker build . -t anchaljaindevops/applebite:latest"
             }
         }        
         stage('DockerHub Push'){
