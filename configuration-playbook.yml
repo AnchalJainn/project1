@@ -1,7 +1,7 @@
 ---
 #Ansible Playbook to build and run a Docker container
  
-- name: Playbook to build and run Docker
+- name: Playbook to Configure Slave Node
   hosts: all
   become: true
   gather_facts: true
