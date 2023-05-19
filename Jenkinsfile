@@ -7,16 +7,10 @@ pipeline {
                git branch: 'master', url: 'https://github.com/AnchalJainn/project1.git'
             }
         }
-        stage("Configure Agent"){
-            steps{
-                sh '''sudo wget https://raw.githubusercontent.com/lerndevops/labs/master/scripts/installDocker.sh -P /tmp
-                    sudo chmod 755 /tmp/installDocker.sh
-                    sudo bash /tmp/installDocker.sh'''
-            }
-        }
         stage('Docker Build'){
             steps{
-                sh "sudo docker build . -t anchaljaindevops/applebite:latest"
+                sh '''sudo docker build . -t anchaljaindevops/applebite:latest
+                sudo docker image ls'''
             }
         }        
         stage('DockerHub Push'){
