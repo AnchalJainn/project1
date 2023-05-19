@@ -7,6 +7,11 @@ pipeline {
                git branch: 'master', url: 'https://github.com/AnchalJainn/project1.git'
             }
         }
+        stage('Configure Server') {
+            steps {
+               ansiblePlaybook become: true, inventory: 'servers.txt', playbook: 'configuration-playbook.yml'
+            }
+        }
         stage('Docker Build'){
             steps{
                 sh '''sudo docker build . -t anchaljaindevops/applebite:latest
