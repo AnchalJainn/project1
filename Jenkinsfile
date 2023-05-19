@@ -15,7 +15,7 @@ pipeline {
         }        
         stage('DockerHub Push'){
             steps{ 
-                withCredentials([usernamePassword(credentialsId: 'dockerpwd1706', passwordVariable: 'pwd')]) {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'pwd')]) {
                       sh "docker login -u anchaljaindevops -p ${pwd}"
                 }
                 
