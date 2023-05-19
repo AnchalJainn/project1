@@ -1,0 +1,24 @@
+---
+#Ansible Playbook to build and run a Docker container
+ 
+- name: Playbook to build and run Docker
+  hosts: all
+  become: true
+  gather_facts: true
+
+  tasks:    
+    - name: install python pip
+      yum:
+        name: python-pip
+        state: present
+
+    - name: install docker
+      yum:
+        name: docker
+        state: present
+
+    - name: start docker
+      service:
+        name: docker
+        state: started
+        enabled: yes
