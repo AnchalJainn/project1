@@ -6,6 +6,7 @@ echo "container id is :$container"
 
 if [[ ! -z $container ]]
 then
+echo "removing docker container with id : $container"
 sudo docker rm -f ${container}
 fi
 
