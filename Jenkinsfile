@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Run Docker container'){
             steps{
-               sh ''''docker rm -f `docker ps -qa`'''
+               sh ''''docker rm -f "docker ps -qa"'''
             }
         }
     }
