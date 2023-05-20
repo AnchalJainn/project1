@@ -33,7 +33,7 @@ pipeline {
                 then
                 sudo docker rm -f ${container}
                 fi
-                '''
+                sudo docker container run -d -p 8083:80 anchaljaindevops/applebite:latest'''
             }
         }
     }
