@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Run Docker container'){
             steps{
-               sh '''container=$(sudo  docker container ls --format="{{.ID}}\\\\t{{.Ports}}" | awk \\\'{print $1}\\\')
+               sh '''container=$(sudo  docker container ls --format="{{.ID}}\\\\t{{.Ports}}" | awk \\\"{print $1}\\\")
                 if [ -z "$container" ]
                 then
                 sudo docker rm -f ${container}
