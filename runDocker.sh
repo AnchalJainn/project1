@@ -1,7 +1,9 @@
 #!/bin/sh -xe
 
 sudo docker container ls --format="{{.ID}}\t{{.Ports}}" | awk "{print $1}"
-if [ ! -z "$container" ]
+echo $container
+
+if [ ! -z $container ]
 then
 echo ${container}
 sudo docker rm -f ${container}
