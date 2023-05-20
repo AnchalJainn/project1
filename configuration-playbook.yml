@@ -8,12 +8,12 @@
 
   tasks:    
     - name: install python pip
-      yum:
+      apt:
         name: python-pip
         state: present
 
     - name: install docker
-      yum:
+      apt:
         name: docker
         state: present
 
