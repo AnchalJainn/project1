@@ -28,7 +28,8 @@ pipeline {
         }
         stage('Run Docker container'){
             steps{
-                sh "sudo docker container run -d -p 8083:80 anchaljaindevops/applebite:latest"
+                sh ''' container=$(sudo  docker container ls --format="{{.ID}}\\t{{.Ports}}" | awk \'{print $1}\')
+                sudo docker rm -f ${container}'''
             }
         }
     }
