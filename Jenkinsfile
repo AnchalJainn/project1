@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Configure Server') {
             steps {
-               ansiblePlaybook become: true, inventory: 'servers.txt', playbook: 'configuration-playbook.yml'
+               sh '''ansible-playbook -i servers.txt configuration-playbook.yml --become'''
             }
         }
         stage('Docker Build'){
