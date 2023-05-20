@@ -28,8 +28,8 @@ pipeline {
         }
         stage('Run Docker container'){
             steps{
-               sh ''''docker rm -f \'docker ps -qa\' 
-               sudo docker container run -d -p 8083:80 anchaljaindevops/applebite:latest'''
+               sh '''sudo chmod +x runDocker.sh
+                     sudo bash runDocker.sh'''
             }
         }
     }
