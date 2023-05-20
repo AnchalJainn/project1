@@ -1,7 +1,7 @@
 #!/bin/sh -xe
 
 PORT=8083
-container=$(sudo docker container ls --format="{{.ID}}\t{{.Ports}}" | grep ${PORT} | awk "{print $1}")
+container=$(sudo docker container ls --format="{{.ID}}\t{{.Ports}}" | grep ${PORT} | awk '{print $1}')
 echo "container id is :$container"
 
 if [[ ! -z $container ]]
